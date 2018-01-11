@@ -1,5 +1,5 @@
 <template>
-	<div class="header">
+	<div class="header" v-if="$store.state.site.showHeader">
 		<div class="main-header">
 			<ul class="left">
 				<li class="logo">

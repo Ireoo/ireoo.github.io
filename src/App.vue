@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<vue-header v-if="showHeader"></vue-header>
-		<div :class="{'body': true, 'noHead': !showHeader}">
+		<vue-header></vue-header>
+		<div :class="{'body': true, 'noHead': !$store.state.site.showHeader}">
 			<router-view/>
 		</div>
 		<vue-footer></vue-footer>
@@ -34,8 +34,8 @@
 		},
 		mounted: function () {
 			this.$nextTick(function () {
-				this.show = !this.$client.chat();
-				this.$store.commit('title', `${this.show}`);
+				this.$store.commit('head', !this.$client.chat());
+				console.log(`${this.$store.state.site.showHeader}`);
 			});
 		}
 	};
@@ -47,7 +47,8 @@
 		padding: 0;
 		margin: 0;
 		font-size: 12px;
-		font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+		font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+		"Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
 	}

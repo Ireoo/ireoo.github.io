@@ -54,7 +54,7 @@
 				this.items = items;
 			});
 			this.$nextTick(() => {
-				this.$store.commit("title", `${this.$client.chat()} | ${this.$store.state.site.title}`);
+				this.$store.commit("title", `${this.$store.state.site.title}`);
 			});
 		}
 	};
