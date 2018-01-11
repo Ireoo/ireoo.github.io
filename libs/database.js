@@ -55,10 +55,12 @@ function DB(url, key, debug = false) {
 					data = result.data;
 				}
 				res(data);
-				if (self.config.debug) {
-					console.log(`SQL      -> [info]  ${JSON.stringify(data)}`);
-				}
-			}).catch(rej);
+				
+				if (self.config.debug) console.log(`SQL      -> [info]  ${JSON.stringify(data)}`);
+			}).catch(err => {
+				rej(err);
+				if (self.config.debug) console.log(`SQL      -> [error] ${JSON.stringify(err)}`);
+			});
 		});
 	};
 }

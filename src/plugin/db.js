@@ -14,4 +14,4 @@ import Vue from "vue";
  */
 import DB from "../../libs/database";
 
-Vue.prototype.$db = new DB("https://api.ireoo.com", "qiyi.io", false);
+Vue.prototype.$db = new DB("https://api.ireoo.com", "qiyi.io", true);
