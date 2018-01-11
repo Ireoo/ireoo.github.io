@@ -43,6 +43,7 @@
 				// e.preventDefault();
 				if(e.touches[0].pageY < this.now.y) {
 					this.height = this.now.y - e.touches[0].pageY;
+					this.$store.commit('title', this.height);
 				}
 			},
 			end: function (e) {
