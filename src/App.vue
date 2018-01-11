@@ -34,7 +34,7 @@
 		},
 		mounted: function () {
 			this.$nextTick(function () {
-				this.$store.commit('head', !this.$client.chat());
+				this.$store.commit("head", !this.$client.chat());
 			});
 		}
 	};
@@ -70,7 +70,7 @@
 		bottom: 0;
 	}
 
-	div.body>div.main {
+	div.body > div.main {
 		max-width: 900px;
 		margin: auto;
 	}

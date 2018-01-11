@@ -1,9 +1,6 @@
 <template>
 	<div class="main">
-		<b-alert variant="danger"
-				 dismissible
-				 :show="errorShow"
-				 @dismissed="errorShow=false">
+		<b-alert variant="danger" dismissible :show="errorShow" @dismissed="errorShow=false">
 			{{errorMsg}}
 		</b-alert>
 		<b-form @submit="onSubmit" @reset="onReset">
@@ -31,6 +28,11 @@
 				password: ""
 			};
 		},
+		mounted: function () {
+			this.$nextTick(() => {
+				this.$store.commit("title", `登陆 | ${this.$store.state.site.title}`);
+			});
+		},
 		methods: {
 			onSubmit: function (evt) {
 				evt.preventDefault();
@@ -40,9 +42,11 @@
 					password: this.$md5(this.password)
 				};
 				this.$db.table("users").where(data).get("findone").then(user => {
-					if(user !== '') {
+					if (user !== '') {
 						this.$store.commit("login", user);
-						this.$router.push({name: "User"});
+						this.$router.push({
+							name: "User"
+						});
 					} else {
 						this.errorMsg = "账号信息不存在,请确认后再提交!";
 						this.errorShow = true;
@@ -52,16 +56,20 @@
 			},
 			onReset: function (evt) {
 				evt.preventDefault();
-				this.$router.push({name: "Reg"});
+				this.$router.push({
+					name: "Reg"
+				});
 			}
 		}
 	};
+
 </script>
 
 <style>
 	.input-group {
 		margin-bottom: 20px;
 	}
+
 	.input-group-addon {
 		padding: 0 10px;
 		line-height: 34px;
@@ -83,4 +91,5 @@
 		padding: 5px;
 		font-size: 16px;
 	}
+
 </style>

@@ -1,9 +1,6 @@
 <template>
 	<div class="main">
-		<b-alert variant="danger"
-				 dismissible
-				 :show="errorShow"
-				 @dismissed="errorShow=false">
+		<b-alert variant="danger" dismissible :show="errorShow" @dismissed="errorShow=false">
 			{{errorMsg}}
 		</b-alert>
 
@@ -40,6 +37,11 @@
 				repassword: ""
 			};
 		},
+		mounted: function () {
+			this.$nextTick(() => {
+				this.$store.commit("title", `注册 | ${this.$store.state.site.title}`);
+			});
+		},
 		methods: {
 			onSubmit: function (evt) {
 				evt.preventDefault();
@@ -52,14 +54,16 @@
 					data.password = this.$md5(this.password);
 					this.$db.table("users").data(data).get("insert").then(user => {
 						console.log(user);
-						if(user.code && user.code === 11000) {
+						if (user.code && user.code === 11000) {
 							this.errorMsg = "该手机号已经被注册！请更换手机！";
 							this.errorShow = true;
 							this.password = "";
 							this.repassword = "";
 						} else {
 							this.$store.commit("login", user);
-							this.$router.push({name: "User"});
+							this.$router.push({
+								name: "User"
+							});
 						}
 					}).catch(err => {
 						this.errorMsg = `未知错误：${JSON.stringify(err)}`;
@@ -76,16 +80,20 @@
 			},
 			onReset: function (evt) {
 				evt.preventDefault();
-				this.$router.push({name: "Login"});
+				this.$router.push({
+					name: "Login"
+				});
 			}
 		}
 	};
+
 </script>
 
 <style>
 	.input-group {
 		margin-bottom: 20px;
 	}
+
 	.input-group-addon {
 		padding: 0 10px;
 		line-height: 34px;
@@ -107,4 +115,5 @@
 		padding: 5px;
 		font-size: 16px;
 	}
+
 </style>
