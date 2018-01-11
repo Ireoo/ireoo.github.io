@@ -37,7 +37,7 @@ function DB(url, key, debug = false) {
 		let self = this;
 		return new Promise((res, rej) => {
 			self._data.key = self.config.key;
-			if (self.config.debug) console.log(`SQL      -> [into]  ${JSON.stringify(self._data)}`);
+			if (self.config.debug) console.log(`SQL -> [into]\r\n${JSON.stringify(self._data)}`);
 			self.API.post(`${self.config.url}/${self._table}/${command}`, self._data, {
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded"
@@ -56,10 +56,10 @@ function DB(url, key, debug = false) {
 				}
 				res(data);
 				
-				if (self.config.debug) console.log(`SQL      -> [info]  ${JSON.stringify(data)}`);
+				if (self.config.debug) console.log(`SQL -> [info]\r\n${JSON.stringify(data)}`);
 			}).catch(err => {
 				rej(err);
-				if (self.config.debug) console.log(`SQL      -> [error] ${JSON.stringify(err)}`);
+				if (self.config.debug) console.log(`SQL -> [error]\r\n${JSON.stringify(err)}`);
 			});
 		});
 	};
