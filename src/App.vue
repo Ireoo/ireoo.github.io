@@ -35,8 +35,6 @@
 		mounted: function () {
 			this.$nextTick(function () {
 				this.$store.commit('head', !this.$client.chat());
-				this.$store.commit('foot', !this.$route.meta.hideFooter);
-				console.log(`${this.$store.state.site.showHeader}`);
 			});
 		}
 	};

@@ -7,13 +7,18 @@
 		name: "user",
 		mounted: function () {
 			this.$nextTick(function () {
+				this.$store.commit('foot', !this.$route.meta.hideFooter);
 				this.$store.commit("title", `我 | ${this.$store.state.site.title}`);
-				if (!this.$store.state.user) this.$router.push({name: "Login"});
+				if (!this.$store.state.user) this.$router.push({
+					name: "Login"
+				});
 			});
 		}
 	};
+
 </script>
 
 <style>
+
 
 </style>

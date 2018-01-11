@@ -54,6 +54,7 @@
 				this.items = items;
 			});
 			this.$nextTick(() => {
+				this.$store.commit('foot', !this.$route.meta.hideFooter);
 				this.$store.commit("title", `${this.$store.state.site.title}`);
 			});
 		}

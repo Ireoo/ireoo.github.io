@@ -12,15 +12,20 @@
 		},
 		mounted: function () {
 			this.$nextTick(() => {
-				this.$db.table("items").where({_id: this.$route.params.id}).get("findone").then(item => {
+				this.$store.commit('foot', !this.$route.meta.hideFooter);
+				this.$db.table("items").where({
+					_id: this.$route.params.id
+				}).get("findone").then(item => {
 					this.item = item;
 					this.$store.commit("title", `${item.title} | ${this.$store.state.site.title}`);
 				});
 			});
 		}
 	};
+
 </script>
 
 <style>
+
 
 </style>
