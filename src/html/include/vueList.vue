@@ -1,6 +1,5 @@
 <template>
-	<pull-to :top-load-method="refresh">
-		<ul class="items">
+		<ul class="items" @touchmove="pull">
 			<b-media tag="li" v-for="item of items" :key="item._id" @click="$router.push({path:`/${item._id}`})">
 				<b-img slot="aside" :src="item.pict_url" width="100" height="100" :alt="item.title"/>
 				<h5 class="mt-0" v-text="item.title"></h5>
@@ -16,28 +15,20 @@
 				</p>
 			</b-media>
 		</ul>
-	</pull-to>
 </template>
 
 <script>
 	import "../css/list.css";
-	import PullTo from "vue-pull-to";
 
 	export default {
 		name: "vue-list",
-		components: {
-			PullTo
-		},
 		props: ["items"],
 		mounted: function () {
 
 		},
 		methods: {
-			refresh: function(loaded) {
-				setTimeout(() => {
-					// this.dataList.reverse();
-					loaded('done');
-				}, 5000);
+			pull: function(e) {
+				e.preventDefault();
 			}
 		}
 	};
