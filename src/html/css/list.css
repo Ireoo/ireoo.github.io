@@ -1,0 +1,29 @@
+ul.items {
+	margin: 0;
+}
+
+ul.items>li {
+	margin: 0 0 10px 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+ul.items>li:last-child {
+	margin: 0;
+}
+
+ul.items>li>div.media-body>p {
+	margin-bottom: 0;
+}
+
+ul.items>li>div.media-body>p>br {
+	clear: both;
+}
+
+ul.items>li>div.media-body>p>span {
+	float: right;
+}
+
+ul.items>li>div.media-body>p>span:first-child {
+	float: left;
+}
