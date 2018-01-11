@@ -1,5 +1,5 @@
 <template>
-	<div class="footer">
+	<div class="footer" v-if="$store.state.site.showFooter">
 		<b-container class="footer-main">
 			<b-row>
 				<b-col class="footItem">

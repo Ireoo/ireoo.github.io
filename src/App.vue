@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<vue-header></vue-header>
-		<div :class="{'body': true, 'noHead': !$store.state.site.showHeader}">
+		<div :class="{'body': true, 'noHead': !$store.state.site.showHeader, 'noFoot': !$store.state.site.showFooter}">
 			<router-view/>
 		</div>
 		<vue-footer></vue-footer>
@@ -35,6 +35,7 @@
 		mounted: function () {
 			this.$nextTick(function () {
 				this.$store.commit('head', !this.$client.chat());
+				this.$store.commit('foot', !this.$route.meta.hideFooter);
 				console.log(`${this.$store.state.site.showHeader}`);
 			});
 		}
@@ -65,6 +66,10 @@
 
 	div.body.noHead {
 		top: 0;
+	}
+
+	div.body.noFoot {
+		bottom: 0;
 	}
 
 	div.body>div.main {
