@@ -40,7 +40,7 @@
 				this.now.y = e.touches[0].pageY;
 			},
 			pull: function (e) {
-				e.preventDefault();
+				// e.preventDefault();
 				if(e.touches[0].pageY < this.now.y) {
 					this.height = this.now.y - e.touches[0].pageY;
 				}
