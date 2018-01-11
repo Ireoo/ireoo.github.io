@@ -52,7 +52,11 @@
 						this.errorShow = true;
 						this.password = "";
 					}
-				}).catch(console.log);
+				}).catch(err => {
+					this.errorMsg = `未知错误：${JSON.stringify(err)}`;
+					this.errorShow = true;
+					this.password = "";
+				});
 			},
 			onReset: function (evt) {
 				evt.preventDefault();
