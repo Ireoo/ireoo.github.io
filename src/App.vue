@@ -35,6 +35,7 @@
 		mounted: function () {
 			this.$nextTick(function () {
 				this.show = !this.$client.chat();
+				this.$store.commit('title', `${this.show}`);
 			});
 		}
 	};
