@@ -67,6 +67,7 @@
 
 <style>
 	div.footer {
+		height: 58px;
 		background: RGB(242, 242, 242);
 		padding: 5px 0;
 		position: fixed;
