@@ -14,6 +14,7 @@
 				<br/>
 			</p>
 		</b-media>
+		<li class="loading" v-if="loading.bottom">加载中...</li>
 	</ul>
 </template>
 
@@ -26,8 +27,11 @@
 	    data: function() {
 	        return {
 	            height: 0,
+	            loading: {
+	                top: false,
+	                bottom: false
+	            },
 	            now: {
-	                loading: false,
 	                x: 0,
 	                y: 0
 	            }
@@ -59,10 +63,10 @@
 	                    this.now.y = event.touches[0].pageY;
 	                    break;
 	                case "touchend":
-	                    if (this.height === 100 && !this.now.loading) {
-	                        this.now.loading = true;
+	                    if (this.height === 100 && !this.loading.top) {
+	                        this.loading.top = true;
 	                        this.top(msg => {
-	                            this.now.loading = false;
+	                            this.loading.top = false;
 	                            this.height = 0;
 	                        });
 	                    } else {
@@ -90,10 +94,10 @@
 	            let viewH = e.target.clientHeight, //可见高度
 	                contentH = e.target.scrollHeight, //内容高度
 	                scrollTop = e.target.scrollTop; //滚动高度
-	            if (contentH - viewH - scrollTop <= 100 && !this.now.loading) {
-	                this.now.loading = true;
+	            if (contentH - viewH - scrollTop <= 100 && !this.loading.bottom) {
+	                this.loading.bottom = true;
 	                this.bottom(err => {
-	                    this.now.loading = false;
+	                    this.loading.bottom = false;
 	                });
 	            }
 	        }
@@ -105,5 +109,9 @@
 	ul.items {
 	    padding: 10px;
 	    background: #fff;
+	}
+	ul.items > li.loading {
+	    text-align: center;
+	    color: rgb(94, 94, 94);
 	}
 </style>

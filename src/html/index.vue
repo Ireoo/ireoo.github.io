@@ -86,11 +86,15 @@
 	                .other(this.sql.other)
 	                .get("find")
 	                .then(items => {
-	                    if (items.length === 20) this.page++;
-	                    items.forEach(item => {
-	                        this.items.push(item);
-	                        cb();
-	                    });
+	                    this.page++;
+	                    if (items.length > 0) {
+	                        items.forEach(item => {
+	                            this.items.push(item);
+	                            cb();
+	                        });
+	                    } else {
+	                        cb("over");
+	                    }
 	                })
 	                .catch(err => {
 	                    cb(err);
