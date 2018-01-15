@@ -25,9 +25,6 @@
 		},
 		mounted: function () {
 			this.$nextTick(() => {
-
-				console.log(this);
-
 				this.$store.commit("foot", !this.$route.meta.hideFooter);
 				this.$db
 					.table("items")
