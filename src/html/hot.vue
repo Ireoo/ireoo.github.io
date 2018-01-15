@@ -70,11 +70,11 @@
 	                .then(items => {
 	                    this.page = 1;
 	                    this.items = items;
-	                    cb(null);
+	                    cb(null, "ok");
 	                })
 	                .catch(err => {
 	                    alert(err);
-	                    cb(err);
+	                    cb(err, null);
 	                });
 	        },
 	        bottom: function(cb) {
@@ -89,14 +89,14 @@
 	                    if (items.length > 0) {
 	                        items.forEach(item => {
 	                            this.items.push(item);
-	                            cb();
+	                            cb(null, "ok");
 	                        });
 	                    } else {
-	                        cb("over");
+	                        cb(null, "over");
 	                    }
 	                })
 	                .catch(err => {
-	                    cb(err);
+	                    cb(err, null);
 	                    alert(err);
 	                });
 	        }

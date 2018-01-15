@@ -14,7 +14,7 @@
 				<br/>
 			</p>
 		</b-media>
-		<li class="loading" v-if="loading.bottom">加载中...</li>
+		<li class="loading" v-if="loading.bottom" v-text="text.bottom"></li>
 	</ul>
 </template>
 
@@ -30,6 +30,10 @@
 	            loading: {
 	                top: false,
 	                bottom: false
+	            },
+	            text: {
+	                top: "",
+	                bottom: "加载中..."
 	            },
 	            now: {
 	                x: 0,
@@ -96,8 +100,12 @@
 	                scrollTop = e.target.scrollTop; //滚动高度
 	            if (contentH - viewH - scrollTop <= 100 && !this.loading.bottom) {
 	                this.loading.bottom = true;
-	                this.bottom(err => {
-	                    this.loading.bottom = false;
+	                this.bottom((err, msg) => {
+	                    if (msg === "ok") {
+	                        this.loading.bottom = false;
+	                    } else {
+	                        this.text.bottom = "我是有底线的!";
+	                    }
 	                });
 	            }
 	        }
@@ -112,6 +120,6 @@
 	}
 	ul.items > li.loading {
 	    text-align: center;
-	    color: rgb(94, 94, 94);
+	    color: #AAA;
 	}
 </style>
