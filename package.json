@@ -7,7 +7,14 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{vue,js,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -16,7 +23,6 @@
     "clientjs": "^0.1.11",
     "crypto": "^1.0.1",
     "crypto-js": "^3.1.9-1",
-    "qs": "^6.5.1",
     "vue": "^2.5.11",
     "vue-awesome": "^2.3.4",
     "vue-awesome-swiper": "^3.1.0",
@@ -42,6 +48,7 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
+    "prettier": "^1.10.2",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",

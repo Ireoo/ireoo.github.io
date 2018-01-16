@@ -9,82 +9,82 @@
 </template>
 
 <script>
-	import VueHeader from "./html/include/vueHeader.vue";
-	import VueFooter from "./html/include/vueFooter.vue";
+import VueHeader from "./html/include/vueHeader.vue";
+import VueFooter from "./html/include/vueFooter.vue";
 
-	export default {
-	    components: {
-	        VueFooter,
-	        VueHeader
-	    },
-	    name: "app",
-	    data: function() {
-	        return {
-	            showHeader: true
-	        };
-	    },
-	    watch: {
-	        "$store.state.site.page": {
-	            handler: function(val) {
-	                document.title = val;
-	            },
-	            deep: true,
-	            immediate: true
-	        }
-	    },
-	    mounted: function() {
-	        this.$nextTick(function() {
-	            this.$store.commit("head", !this.$client.chat());
-	        });
-	    }
-	};
+export default {
+	components: {
+		VueFooter,
+		VueHeader
+	},
+	name: "app",
+	data: function() {
+		return {
+			showHeader: true
+		};
+	},
+	watch: {
+		"$store.state.site.page": {
+			handler: function(val) {
+				document.title = val;
+			},
+			deep: true,
+			immediate: true
+		}
+	},
+	mounted: function() {
+		this.$nextTick(function() {
+			this.$store.commit("head", !this.$client.chat());
+		});
+	}
+};
 </script>
 
 <style>
-	* {
-	    padding: 0;
-	    margin: 0;
-	    font-size: 12px;
-	    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-	        "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
-	    -webkit-box-sizing: border-box;
-	    box-sizing: border-box;
-	}
+* {
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+	font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+		"Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
 
-	div.body {
-	    position: fixed;
-	    top: 40px;
-	    left: 0;
-	    right: 0;
-	    bottom: 58px;
-	    overflow-y: auto;
-	    background: #ccc;
-	}
+div.body {
+	position: fixed;
+	top: 40px;
+	left: 0;
+	right: 0;
+	bottom: 58px;
+	overflow-y: auto;
+	background: #ccc;
+}
 
-	div.body.noHead {
-	    top: 0;
-	}
+div.body.noHead {
+	top: 0;
+}
 
-	div.body.noFoot {
-	    bottom: 0;
-	}
+div.body.noFoot {
+	bottom: 0;
+}
 
-	div.body > div.main {
-	    max-width: 900px;
-	    margin: auto;
-	}
+div.body > div.main {
+	max-width: 900px;
+	margin: auto;
+}
 
-	a {
-	    display: flex;
-	    /*Flex布局*/
-	    display: -webkit-flex;
-	    /* Safari */
-	    align-items: center;
-	    /*指定垂直居中*/
-	    text-decoration: none;
-	}
+a {
+	display: flex;
+	/*Flex布局*/
+	display: -webkit-flex;
+	/* Safari */
+	align-items: center;
+	/*指定垂直居中*/
+	text-decoration: none;
+}
 
-	a:hover {
-	    text-decoration: underline;
-	}
+a:hover {
+	text-decoration: underline;
+}
 </style>
