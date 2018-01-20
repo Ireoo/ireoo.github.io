@@ -5,7 +5,7 @@
 				<b-col class="footItem">
 					<b-link :class="{'on': on('/')}" to="/">
 						<span>
-							<icon name="home" scale="1"></icon>
+							<i class="fa fa-home"></i>
 						</span>
 						<span>首页</span>
 					</b-link>
@@ -13,7 +13,7 @@
 				<b-col class="footItem">
 					<b-link :class="{'on': on('/hot')}" to="/hot">
 						<span>
-							<icon name="heartbeat" scale="1"></icon>
+							<i class="fa fa-heartbeat"></i>
 						</span>
 						<span>推荐</span>
 					</b-link>
@@ -21,7 +21,7 @@
 				<b-col class="footItem">
 					<b-link :class="{'on': on('/search')}" to="/search">
 						<span>
-							<icon name="search" scale="1"></icon>
+							<i class="fa fa-search"></i>
 						</span>
 						<span>搜索</span>
 					</b-link>
@@ -35,7 +35,7 @@
 				<b-col class="footItem">
 					<b-link :class="{'on': on(['/user', '/login', '/reg'])}" to="/user">
 						<span>
-							<icon name="user-circle" scale="1"></icon>
+							<i class="fa fa-user-circle"></i>
 						</span>
 						<span>我</span>
 					</b-link>
@@ -76,26 +76,30 @@
 		right: 0;
 	}
 
-	.footItem>a {
+	.footItem > a {
 		padding: 5px 0;
 		display: block;
-		color: #4898F8;
+		color: #ff0000;
 		border-radius: 3px;
 	}
 
-	.footItem>a:hover {
+	.footItem > a:hover {
 		text-decoration: none;
 	}
 
-	.footItem>a.on {
-		background: #4898F8;
+	.footItem > a.on {
+		background: #ff0000;
 		color: #FFF;
 	}
 
-	.footItem>a>span {
+	.footItem > a > span {
 		display: block;
 		text-align: center;
 		font-size: 10px;
+	}
+
+	.footItem > a > span > i {
+		font-size: 20px;
 	}
 
 </style>

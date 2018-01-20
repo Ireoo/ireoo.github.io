@@ -19,7 +19,7 @@ Vue.prototype.$crypto = {
 let user = undefined;
 if (localStorage.getItem("user")) {
 	user = JSON.parse(decrypt(localStorage.getItem("user"), "aTaoke in localhost"));
-	if (user.timer > (new Date()).getTime() + 15 * 60 * 1000) {
+	if (user.timer <= (new Date()).getTime() + 15 * 60 * 1000) {
 		localStorage.removeItem("user");
 		user = undefined;
 	}

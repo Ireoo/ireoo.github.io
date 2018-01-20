@@ -4,7 +4,7 @@
 			<ul class="left">
 				<li class="logo">
 					<router-link to="/">
-						<icon name="ravelry" scale="1.6"></icon>
+						<i class="fa fa-shopping-bag"></i>
 						<span v-text="$store.state.site.name"></span>
 					</router-link>
 				</li>
@@ -12,13 +12,13 @@
 			<ul class="right" v-if="!$store.state.user">
 				<li>
 					<router-link to="/login">
-						<icon name="user-circle-o"></icon>
+						<i class="fa fa-user-circle-o"></i>
 						<span>登陆</span>
 					</router-link>
 				</li>
 				<li>
 					<router-link to="/reg">
-						<icon name="user-plus"></icon>
+						<i class="fa fa-user-plus"></i>
 						<span>注册</span>
 					</router-link>
 				</li>
@@ -27,7 +27,7 @@
 				<li>
 					<!--<router-link to="/user">-->
 					<b-btn id="user" variant="primary">
-						<icon name="user-circle-o" style="margin-right: 5px;"></icon>
+						<i class="fa fa-user-circle-o" style="margin-right: 5px;"></i>
 						<span v-text="$store.state.user.nick"></span>
 					</b-btn>
 					<!--</router-link>-->
@@ -36,13 +36,13 @@
 						<b-list-group>
 							<b-list-group-item>
 								<b-link to="/user">
-									<icon name="user-circle" style="margin-right: 5px;"></icon>
+									<i class="fa fa-user-circle-o" style="margin-right: 5px;"></i>
 									个人中心
 								</b-link>
 							</b-list-group-item>
 							<b-list-group-item>
 								<a href="javascript:void(0);" @click="$store.commit('logout');$router.push({name: 'Login'});">
-									<icon name="sign-out" style="margin-right: 5px;"></icon>
+									<i class="fa fa-sign-out" style="margin-right: 5px;"></i>
 									<span>退出</span>
 								</a>
 							</b-list-group-item>
@@ -150,7 +150,7 @@
 	div.header>div.main-header>ul>li.logo>a>i,
 	div.header>div.main-header>ul>li.logo>a>svg,
 	div.header>div.main-header>ul>li.logo>a>img {
-		font-size: 12px;
+		font-size: 20px;
 		color: #ff0000;
 	}
 

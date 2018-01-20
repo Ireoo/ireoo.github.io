@@ -9,7 +9,6 @@ import "./plugin/client";
 import "./plugin/Bootstarp";
 import "./plugin/db";
 import "./plugin/http";
-import "./plugin/icon";
 import "./plugin/QRcode";
 import store from "./plugin/vuex";
 

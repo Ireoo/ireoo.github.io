@@ -1,12 +1,16 @@
 <template>
 	<div class="main">
-		<b-alert variant="danger" dismissible :show="errorShow" @dismissed="errorShow=false">
-			{{errorMsg}}
-		</b-alert>
+
 		<b-form @submit="onSubmit" @reset="onReset">
+
+			<b-alert variant="danger" dismissible :show="errorShow" @dismissed="errorShow=false">
+				{{errorMsg}}
+			</b-alert>
+
 			<b-input-group left="账号">
 				<b-form-input type="tel" v-model="phone" required placeholder="输入手机号码"></b-form-input>
 			</b-input-group>
+
 			<b-input-group left="密码">
 				<b-form-input type="password" v-model="password" required placeholder="输入账号密码"></b-form-input>
 			</b-input-group>
@@ -14,6 +18,7 @@
 			<b-button type="submit" variant="primary">登陆</b-button>
 			<b-button type="reset" variant="danger">注册一个账号</b-button>
 		</b-form>
+
 	</div>
 </template>
 
@@ -70,6 +75,10 @@
 </script>
 
 <style>
+	form {
+		padding: 70px 10px 10px 10px;
+	}
+
 	.input-group {
 		margin-bottom: 20px;
 	}
