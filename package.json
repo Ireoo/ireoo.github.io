@@ -9,8 +9,8 @@
 		"dev":
 			"cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --open --hot",
 		"build":
-			"cross-env NODE_ENV=production webpack --progress --hide-modules",
-		"precommit": "npm run build && lint-staged"
+			"cross-env NODE_ENV=production webpack --progress --hide-modules && git add . && git commit -m '打包程序' && git push",
+		"precommit": "lint-staged"
 	},
 	"lint-staged": {
 		"*.{vue,js,json,css}": [
