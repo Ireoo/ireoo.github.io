@@ -1,57 +1,54 @@
 {
-  "name": "ataoke-mobile",
-  "description": "A Vue.js project",
-  "version": "1.0.0",
-  "author": "Ireoo",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "precommit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{vue,js,json,css}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "dependencies": {
-    "axios": "^0.17.1",
-    "bootstrap": "^4.0.0-beta.2",
-    "bootstrap-vue": "^1.4.0",
-    "clientjs": "^0.1.11",
-    "crypto": "^1.0.1",
-    "crypto-js": "^3.1.9-1",
-    "vue": "^2.5.11",
-    "vue-awesome": "^2.3.4",
-    "vue-awesome-swiper": "^3.1.0",
-    "vue-pull-to": "^0.1.6",
-    "vue-qriously": "^1.1.1",
-    "vue-router": "^3.0.1",
-    "vue-wechat-auth": "^1.0.2",
-    "vue-ydui": "^1.2.0",
-    "vuex": "^3.0.1"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
-  "devDependencies": {
-    "babel": "^6.23.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-3": "^6.24.1",
-    "cross-env": "^5.0.5",
-    "css-loader": "^0.28.7",
-    "file-loader": "^1.1.4",
-    "prettier": "^1.10.2",
-    "vue-loader": "^13.0.5",
-    "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
-  }
+	"name": "ataoke-site",
+	"description": "aTaoke description site and download desktop app.",
+	"version": "1.0.0",
+	"author": "Ireoo",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"dev":
+			"cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --open --hot",
+		"build":
+			"cross-env NODE_ENV=production webpack --progress --hide-modules",
+		"precommit": "lint-staged"
+	},
+	"lint-staged": {
+		"*.{vue,js,json,css}": ["prettier --write", "git add"]
+	},
+	"dependencies": {
+		"axios": "^0.17.1",
+		"bootstrap": "^4.0.0-beta.2",
+		"bootstrap-vue": "^1.4.0",
+		"clientjs": "^0.1.11",
+		"crypto": "^1.0.1",
+		"crypto-js": "^3.1.9-1",
+		"vue": "^2.5.11",
+		"vue-awesome": "^2.3.4",
+		"vue-awesome-swiper": "^3.1.0",
+		"vue-pull-to": "^0.1.6",
+		"vue-qriously": "^1.1.1",
+		"vue-router": "^3.0.1",
+		"vue-wechat-auth": "^1.0.2",
+		"vue-ydui": "^1.2.0",
+		"vuex": "^3.0.1"
+	},
+	"browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+	"devDependencies": {
+		"babel": "^6.23.0",
+		"babel-core": "^6.26.0",
+		"babel-loader": "^7.1.2",
+		"babel-preset-env": "^1.6.0",
+		"babel-preset-es2015": "^6.24.1",
+		"babel-preset-stage-3": "^6.24.1",
+		"cross-env": "^5.0.5",
+		"css-loader": "^0.28.7",
+		"file-loader": "^1.1.4",
+		"husky": "^0.14.3",
+		"lint-staged": "^7.0.4",
+		"prettier": "^1.10.2",
+		"vue-loader": "^13.0.5",
+		"vue-template-compiler": "^2.4.4",
+		"webpack": "^3.6.0",
+		"webpack-dev-server": "^2.9.1"
+	}
 }
