@@ -10,10 +10,10 @@
 			"cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --open --hot",
 		"build":
 			"cross-env NODE_ENV=production webpack --progress --hide-modules",
-		"precommit": "lint-staged"
+		"precommit": "npm run build && lint-staged"
 	},
 	"lint-staged": {
-		"*.{vue,js,json,css}": ["prettier --write", "npm run build", "git add"]
+		"*.{vue,js,json,css}": ["prettier --write", "git add"]
 	},
 	"dependencies": {
 		"axios": "^0.17.1",
