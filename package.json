@@ -13,7 +13,10 @@
 		"precommit": "npm run build && lint-staged"
 	},
 	"lint-staged": {
-		"*.{vue,js,json,css}": ["prettier --write", "git add"]
+		"*.{vue,js,json,css}": [
+			"prettier --write --ignore-path='./dist/*.js'",
+			"git add"
+		]
 	},
 	"dependencies": {
 		"axios": "^0.17.1",
