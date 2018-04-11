@@ -1,1 +1,64 @@
-webpackJsonp([3],{418:function(t,e,n){"use strict";function i(t){n(449)}Object.defineProperty(e,"__esModule",{value:!0});var o=n(432),s=n.n(o);for(var r in o)"default"!==r&&function(t){n.d(e,t,function(){return o[t]})}(r);var u=n(451),c=n(18),a=i,f=c(s.a,u.a,!1,a,null,null);e.default=f.exports},432:function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default={name:"user",mounted:function(){this.$nextTick(function(){this.$store.commit("foot",!this.$route.meta.hideFooter),this.$store.commit("title","我 | "+this.$store.state.site.title),this.$store.state.user||this.$router.push({name:"Login"})})}}},449:function(t,e,n){var i=n(450);"string"==typeof i&&(i=[[t.i,i,""]]),i.locals&&(t.exports=i.locals);n(14)("05fb0acd",i,!0)},450:function(t,e,n){e=t.exports=n(13)(!1),e.push([t.i,"",""])},451:function(t,e,n){"use strict";var i=function(){var t=this,e=t.$createElement;return(t._self._c||e)("div")},o=[],s={render:i,staticRenderFns:o};e.a=s}});
+webpackJsonp([3], {
+	419: function(t, e, n) {
+		"use strict";
+		function i(t) {
+			n(453);
+		}
+		Object.defineProperty(e, "__esModule", { value: !0 });
+		var o = n(433),
+			s = n.n(o);
+		for (var r in o)
+			"default" !== r &&
+				(function(t) {
+					n.d(e, t, function() {
+						return o[t];
+					});
+				})(r);
+		var u = n(455),
+			c = n(18),
+			a = i,
+			f = c(s.a, u.a, !1, a, null, null);
+		e.default = f.exports;
+	},
+	433: function(t, e, n) {
+		"use strict";
+		Object.defineProperty(e, "__esModule", { value: !0 }),
+			(e.default = {
+				name: "user",
+				mounted: function() {
+					this.$nextTick(function() {
+						this.$store.commit(
+							"foot",
+							!this.$route.meta.hideFooter
+						),
+							this.$store.commit(
+								"title",
+								"我 | " + this.$store.state.site.title
+							),
+							this.$store.state.user ||
+								this.$router.push({ name: "Login" });
+					});
+				}
+			});
+	},
+	453: function(t, e, n) {
+		var i = n(454);
+		"string" == typeof i && (i = [[t.i, i, ""]]),
+			i.locals && (t.exports = i.locals);
+		n(14)("7b0fdee6", i, !0, {});
+	},
+	454: function(t, e, n) {
+		(e = t.exports = n(13)(!1)), e.push([t.i, "", ""]);
+	},
+	455: function(t, e, n) {
+		"use strict";
+		var i = function() {
+				var t = this,
+					e = t.$createElement;
+				return (t._self._c || e)("div");
+			},
+			o = [],
+			s = { render: i, staticRenderFns: o };
+		e.a = s;
+	}
+});
