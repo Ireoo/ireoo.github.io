@@ -3,56 +3,46 @@ import Router from "vue-router";
 
 Vue.use(Router);
 
-export default new Router({
-	// mode: "history",
-	routes: [
-		{
-			path: "/",
-			name: "Index",
-			component: resolve => require(["./html/index.vue"], resolve)
-		},
-		{
-			path: "/list",
-			name: "List",
-			component: resolve => require(["./html/list.vue"], resolve)
-		},
-		{
-			path: "/login",
-			name: "Login",
-			component: resolve => require(["./html/login.vue"], resolve)
-		},
-		{
-			path: "/reg",
-			name: "Reg",
-			component: resolve => require(["./html/reg.vue"], resolve)
-		},
-		{
-			path: "/user",
-			name: "User",
-			component: resolve => require(["./html/user.vue"], resolve)
-		},
-		{
-			path: "/hot",
-			name: "Hot",
-			component: resolve => require(["./html/hot.vue"], resolve)
-		},
-		{
-			path: "/cart",
-			name: "Cart",
-			component: resolve => require(["./html/cart.vue"], resolve)
-		},
-		{
-			path: "/search",
-			name: "Search",
-			component: resolve => require(["./html/search.vue"], resolve)
-		},
-		{
-			path: "/:id",
-			name: "Item",
-			component: resolve => require(["./html/item.vue"], resolve),
-			meta: {
-				hideFooter: true
-			}
-		}
-	]
+const routes = [];
+let files = require.context("./html", false, /\.vue$/);
+
+files.keys().forEach(key => {
+    console.log(key);
+    let file = key.replace(/(\.\/|\.vue)/g, "");
+
+    let fileArray = file.split("/");
+    let filename = fileArray
+        .pop()
+        .replace(/\b(\w)(\w*)/g, function($0, $1, $2) {
+            return $1.toUpperCase() + $2.toLowerCase();
+        });
+    let dir = fileArray.join("/");
+    let dirname = fileArray
+        .map(d => {
+            return d.replace(/\b(\w)(\w*)/g, function($0, $1, $2) {
+                return $1.toUpperCase() + $2.toLowerCase();
+            });
+        })
+        .join("");
+
+    let component = require(`./html/${file}.vue`).default;
+
+    let route = {
+        path: filename.toLowerCase() === "index" ?
+            `/${dir}` :
+            `/${file.toLowerCase()}`,
+        name: filename.toLowerCase() === "index" && dirname != "" ?
+            dirname :
+            filename,
+        component: component,
+        meta: {
+            title: component.title
+        }
+    };
+
+    routes.push(route);
+
+    console.log(`加载文件: ${key} \r\n挂载点: ${route.path} \r\n完成!`);
 });
+
+export default new Router({ routes });

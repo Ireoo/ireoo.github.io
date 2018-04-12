@@ -5,11 +5,12 @@
 </template>
 
 <script>
-import VueList from "./include/vueList.vue";
+import VueList from "../include/vueList.vue";
 
 export default {
 	components: { VueList },
 	name: "Index",
+	title: "首页",
 	data: function() {
 		return {
 			sql: {
@@ -111,4 +112,5 @@ export default {
 </script>
 
 <style>
+
 </style>

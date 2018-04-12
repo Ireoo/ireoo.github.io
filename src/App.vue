@@ -24,67 +24,18 @@ export default {
 		};
 	},
 	watch: {
-		"$store.state.site.page": {
-			handler: function(val) {
-				document.title = val;
-			},
-			deep: true,
-			immediate: true
+		"$route.meta.title": function(v) {
+			document.title = `${v} - 爱淘客`;
 		}
 	},
 	mounted: function() {
-		this.$nextTick(function() {
-			this.$store.commit("head", !this.$client.chat());
-		});
+		document.title = `${this.$route.meta.title} - 爱淘客`;
+
+		this.$nextTick(function() {});
 	}
 };
 </script>
 
 <style>
-* {
-	padding: 0;
-	margin: 0;
-	font-size: 12px;
-	font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-		"Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-div.body {
-	position: fixed;
-	top: 40px;
-	left: 0;
-	right: 0;
-	bottom: 58px;
-	overflow-y: auto;
-	background: #ccc;
-}
-
-div.body.noHead {
-	top: 0;
-}
-
-div.body.noFoot {
-	bottom: 0;
-}
-
-div.body > div.main {
-	max-width: 900px;
-	margin: auto;
-}
-
-a {
-	display: flex;
-	/*Flex布局*/
-	display: -webkit-flex;
-	/* Safari */
-	align-items: center;
-	/*指定垂直居中*/
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
+@import url("/css/style.css");
 </style>
