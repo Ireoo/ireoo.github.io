@@ -27,14 +27,20 @@ files.keys().forEach(key => {
 
     let component = require(`./html/${file}.vue`).default;
 
+    let path =
+        component.path && component.path !== "" && component.path !== "/" ?
+        component.path :
+        "";
+
     let route = {
         path: filename.toLowerCase() === "index" ?
-            `/${dir}` :
-            `/${file.toLowerCase()}`,
+            `/${dir}${path}` :
+            `/${file.toLowerCase()}${path}`,
         name: filename.toLowerCase() === "index" && dirname != "" ?
             dirname :
             filename,
         component: component,
+        props: route => route.query,
         meta: {
             title: component.title
         }
