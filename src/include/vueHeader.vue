@@ -2,7 +2,7 @@
 	<div class="header" v-if="$store.state.site.showHeader">
 		<div class="main-header">
 			<div class="content-header">
-				<ul class="left">
+				<ul>
 					<li class="logo">
 						<router-link to="/">
 							<img :src="$store.state.site.avatar" />
@@ -62,7 +62,7 @@ div.header > div.main-header > div.content-header {
 
 div.header > div.main-header > div.content-header > ul {
 	line-height: 90px;
-	width: 50%;
+	/* width: 50%; */
 	display: inline-block;
 	list-style-type: none;
 	padding: 0;

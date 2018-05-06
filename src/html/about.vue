@@ -3,45 +3,48 @@
 		<div class="content">
 			<div class="li">
 				<h1>基本信息</h1>
-				<table class="base">
-					<tr>
-						<td>
-							<label>姓名</label>
-							<span>王超</span>
-						</td>
-						<td>
-							<label>邮箱</label>
-							<span>s@ireoo.com</span>
-						</td>
-						<td>
-							<label>性别</label>
-							<span>男</span>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<label>年龄</label>
-							<span>{{age}}</span>
-						</td>
-						<td>
-							<label>毕业院校</label>
-							<span>淮阴工学院</span>
-						</td>
-						<td>
-							<label>电话</label>
-							<span>13395209955</span>
-						</td>
-					</tr>
-				</table>
+				<ul class="base">
+					<li>
+						<label>姓名</label>
+						<span>王超</span>
+						<br>
+					</li>
+					<li>
+						<label>邮箱</label>
+						<span>s@ireoo.com</span>
+						<br>
+					</li>
+					<li>
+						<label>性别</label>
+						<span>男</span>
+						<br>
+					</li>
+					<li>
+						<label>年龄</label>
+						<span>{{age}}</span>
+						<br>
+					</li>
+					<li>
+						<label>电话</label>
+						<span>13395209955</span>
+						<br>
+					</li>
+					<li>
+						<label>毕业院校</label>
+						<span>淮阴工学院</span>
+						<br>
+					</li>
+					<br>
+				</ul>
 
-				<table class="github">
-					<tr>
-						<td>
-							<label>个人项目地址</label>
-							<span>https://github.com/Ireoo</span>
-						</td>
-					</tr>
-				</table>
+				<ul class="base github">
+					<li>
+						<label>个人项目地址</label>
+						<span>https://github.com/Ireoo</span>
+						<br>
+					</li>
+					<br>
+				</ul>
 			</div>
 
 			<div class="li">
@@ -198,8 +201,15 @@ export default {
 </script>
 
 <style scoped>
+br {
+	clear: both;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+}
+
 div.content {
-	padding-top: 100px;
+	padding: 100px 10px 10px 10px;
 }
 
 div.li {
@@ -225,44 +235,69 @@ table tr td {
 	padding: 5px;
 }
 
-table.base tr {
-	border-top: 1px solid #333;
+ul.base li {
+	padding: 10px;
 }
 
-table.base tr:first-child {
-	border-top: none;
+ul.base li label,
+ul.base li span {
+	margin-bottom: 0;
+	float: left;
+	font-size: 20px;
+	line-height: 30px;
 }
 
-table.base tr td {
-	border-width: 0 0 0 1px;
-}
-
-table.base tr td:first-child {
-	border-width: 0;
-}
-
-table tr td label {
+ul.base li label {
+	width: 30%;
 	text-align: right;
 	padding-right: 5%;
 	color: #aaa;
 }
 
-table tr td span {
+ul.base li span {
+	width: 50%;
 	margin-left: 5%;
 	text-align: left;
 	font-weight: bold;
 }
 
-table tr td label,
-table tr td span {
-	margin-bottom: 0;
-	width: 45%;
-	float: left;
-	font-size: 20px;
-}
+@media (min-width: 600px) {
+	ul.base li {
+		float: left;
+		width: 33.33%;
+		border-width: 1px 0 0 1px;
+		border-color: #333;
+		border-style: solid;
+	}
 
-table.github tr td label {
-	border-right: 1px #333 solid;
+	ul.github {
+		border: 1px solid #333;
+		height: 50px;
+	}
+
+	ul.github li {
+		float: none;
+		width: 100%;
+	}
+
+	ul.github li label {
+		border-right: 1px #333 solid;
+	}
+
+	ul.base li:nth-child(6) label {
+		font-size: 10px;
+	}
+
+	ul.base li:nth-child(1),
+	ul.base li:nth-child(2),
+	ul.base li:nth-child(3) {
+		border-top: none;
+	}
+
+	ul.base li:nth-child(1),
+	ul.base li:nth-child(4) {
+		border-left: none;
+	}
 }
 
 table.art tr td {
