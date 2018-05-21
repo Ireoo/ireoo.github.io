@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<ul>
-			<li v-for="(post, key) in posts" :key="key">
+			<li v-for="(post, key) in speechs" :key="key">
 				<h1>
-					<b-link :to="post.sha | href">{{post.name | title}}</b-link>
+					<b-link>{{post}}</b-link>
 				</h1>
 			</li>
 		</ul>
@@ -14,6 +14,7 @@
 export default {
 	name: "Index",
 	title: "首页",
+	props: ["speechs"],
 	data: function() {
 		return {
 			posts: [],

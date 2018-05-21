@@ -15,6 +15,8 @@ import "./plugin/Bootstarp";
 import "./plugin/db";
 import "./plugin/http";
 import "./plugin/QRcode";
+// import "./plugin/speech";
+// import "./plugin/speechs";
 
 new Vue({
     el: "#app",
