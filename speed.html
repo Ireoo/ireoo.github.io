@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Demo of JuliusJS</title>
-    <script src="https://zzmp.github.io/juliusjs/julius.js"></script>
   </head>
   <body>
     Say something:
@@ -10,25 +9,28 @@
     <div id="what-you-said"></div>
 
     Note that my vocabulary is limited for this demo.
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script>
-    var julius = new Julius({
-      log: true
-    });
+    if (annyang) {
+      // Let's define our first command. First the text we expect, and then the function it should call
+      var commands = {
+        'show tps report': function() {
+          $('#tpsreport').animate({bottom: '-100px'});
+        }
+      };
 
-    julius.onrecognition = function(sentence) {
-      console.log('Sentence: ', sentence);
-      document.getElementById('what-you-said').innerHTML = sentence;
-    }
-    julius.onfirstpass = function(sentence) {
-      console.log('First pass: ', sentence);
-    }
-    julius.onfail = function() {
-      // This will throw its own Error
-      console.error('fail');
-    }
-    // This will only log if you pass `log: true` in the options object
-    julius.onlog = function(log) {
-      console.log(log);
+      // Add our commands to annyang
+      annyang.addCommands(commands);
+
+      // Start listening. You can call this here, or attach this call to an event, button, etc.
+      annyang.start();
+      annyang.debug(true);
+      
+      annyang.addCallback('resultMatch', function(userSaid, commandText, phrases) {
+        console.log(userSaid); // sample output: 'hello'
+        console.log(commandText); // sample output: 'hello (there)'
+        console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
+      });
     }
     </script>
   </body>
