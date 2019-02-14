@@ -11,27 +11,16 @@
     Note that my vocabulary is limited for this demo.
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script>
-    if (annyang) {
-      // Let's define our first command. First the text we expect, and then the function it should call
-      var commands = {
-        'show tps report': function() {
-          $('#tpsreport').animate({bottom: '-100px'});
-        }
-      };
+    	if (annyang) {
+        annyang.setLanguage('zh-CN');
 
-      // Add our commands to annyang
-      annyang.addCommands(commands);
+        annyang.debug();
 
-      // Start listening. You can call this here, or attach this call to an event, button, etc.
-      annyang.start();
-      annyang.debug(true);
-      
-      annyang.addCallback('resultMatch', function(userSaid, commandText, phrases) {
-        console.log(userSaid); // sample output: 'hello'
-        console.log(commandText); // sample output: 'hello (there)'
-        console.log(phrases); // sample output: ['hello', 'halo', 'yellow', 'polo', 'hello kitty']
-      });
-    }
+        // Start listening.
+        annyang.start();
+      } else {
+        console.log("no annyang");
+      }
     </script>
   </body>
 </html>
